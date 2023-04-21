@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-const IntroductionContainer = styled.div`
-
-
+const HomeContainer = styled.div`
+  display: flex;
+  width: 100%;
 `;
+
+export { HomeContainer };

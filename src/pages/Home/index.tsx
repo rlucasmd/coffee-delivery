@@ -1,8 +1,11 @@
+import { Introduction } from "./components/Introduction";
+import { HomeContainer } from "./styles";
+
 function Home(){
   return (
-    <h1>
-      Home;
-    </h1>
+    <HomeContainer>
+      <Introduction />
+    </HomeContainer>
   );
 }
 
