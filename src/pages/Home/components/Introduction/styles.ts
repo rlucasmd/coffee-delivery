@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import backgroundImageCover from "../../../../assets/background.png";
 import { rgba } from "polished";
+import { Title } from "../../../../components/Typography";
 
 const IntroductionContainer = styled.section`
   display: flex;
@@ -8,12 +9,12 @@ const IntroductionContainer = styled.section`
   justify-content: center;
   width: 100%;
   height: 34rem;
-  background: ${({ theme }) => `url(${backgroundImageCover}) no-repeat center,
+  background: ${({ theme: {colors} }) => `url(${backgroundImageCover}) no-repeat center,
       linear-gradient(
         0deg,
-        ${theme.white} 0%,
-        ${rgba(theme.background, 0.2)} 50%,
-        ${theme.background} 100%
+        ${colors.white} 0%,
+        ${rgba(colors.background, 0.2)} 50%,
+        ${colors.background} 100%
       )`};
   background-size: cover;
 `;
@@ -27,22 +28,11 @@ const IntroductionContent = styled.div`
   div > section {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    /* gap: 1rem; */
   } 
 `;
-const Title = styled.h1`
-  font-family: "Baloo 2", sans-serif;
-  font-weight: 800;
-  font-size: 3rem;
-  line-height: 1.3;
-  color: ${props => props.theme["base-title"]};
-`;
-const Subtitle = styled.h3`
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 26px;
-
+const IntroductionTitle = styled(Title)`
+  margin-bottom: 1rem;
 `;
 
 const BenefitsContainer = styled.div`
@@ -54,7 +44,6 @@ const BenefitsContainer = styled.div`
 export { 
   IntroductionContainer,
   IntroductionContent,
-  Title,
-  Subtitle,
+  IntroductionTitle,
   BenefitsContainer
 };

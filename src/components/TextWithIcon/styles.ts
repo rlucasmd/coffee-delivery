@@ -5,9 +5,6 @@ const TextWithIconContainer = styled.div`
   align-items: center;
   gap: 12px;
 
-  >p{
-    
-  }
 `;
 
 interface IconContainerProps {
@@ -22,8 +19,8 @@ const IconContainer = styled.div<IconContainerProps>`
   border-radius: 100%;
   width: 2rem;
   height: 2rem;
-  color: ${props => props.theme.white};
-  background: ${props => props.background};
+  color: ${({theme}) => theme.colors.white};
+  background: ${ props => props.background};
 `;
 
 export { 

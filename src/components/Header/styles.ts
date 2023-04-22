@@ -7,7 +7,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  background: ${props => props.theme.background};
+  background: ${({ theme }) => theme.colors.background};
 
   >div{
     display: flex;
@@ -30,14 +30,14 @@ const BaseButton = styled.button`
 `;
 
 const Location = styled(BaseButton)`
-  background-color: ${props => props.theme["purple-light"]};
-  color: ${props => props.theme["purple"]};
+  background-color: ${({ theme }) => theme.colors["purple-light"]};
+  color: ${({ theme }) => theme.colors["purple"]};
   font-size: 0.875rem;
 `;
 
 const Cart = styled(BaseButton)`
-  background-color: ${props => props.theme["yellow-light"]};
-  color: ${props => props.theme["yellow-dark"]};
+  background-color: ${({ theme }) => theme.colors["yellow-light"]};
+  color: ${({ theme }) => theme.colors["yellow-dark"]};
 `;
 
 const HeaderButtonsContainer = styled.div`
