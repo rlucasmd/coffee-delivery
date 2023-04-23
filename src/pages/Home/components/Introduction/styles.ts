@@ -28,7 +28,6 @@ const IntroductionContent = styled.div`
   div > section {
     display: flex;
     flex-direction: column;
-    /* gap: 1rem; */
   } 
 `;
 const IntroductionTitle = styled(Title)`
