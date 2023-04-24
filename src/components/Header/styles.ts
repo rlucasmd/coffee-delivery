@@ -36,8 +36,26 @@ const Location = styled(BaseButton)`
 `;
 
 const Cart = styled(BaseButton)`
+  position: relative;
   background-color: ${({ theme }) => theme.colors["yellow-light"]};
   color: ${({ theme }) => theme.colors["yellow-dark"]};
+  overflow: visible;
+
+  span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    top: calc(-1.25rem / 2);
+    right: calc(-1.25rem / 2);
+    color: ${({theme}) => theme.colors.white};
+    background: ${({theme}) => theme.colors["yellow-dark"]};
+    font-size: ${({theme}) => theme.textSizes["text-bold-s"]};
+    font-weight: 700;
+  }
 `;
 
 const HeaderButtonsContainer = styled.div`

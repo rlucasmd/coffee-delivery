@@ -48,7 +48,7 @@ function CoffeeCard({
           </Title>
         </div>
         <AddCartWrapper>
-          <QuantityInput size="medium"/>
+          <QuantityInput />
           <button>
             <ShoppingCart size={22} weight="fill"/>
           </button>

@@ -3,6 +3,7 @@ import logoImg from "../../assets/logo.svg";
 import { MapPin, ShoppingCart } from "phosphor-react";
 
 function Header(){
+  const cartQuantity = 100;
   return(
     <HeaderContainer>
       <div className="container">
@@ -10,9 +11,10 @@ function Header(){
         <HeaderButtonsContainer>
           <Location>
             <MapPin size={20} weight="fill"/>
-          Carnaúba dos Dantas, RN
+            Carnaúba dos Dantas, RN
           </Location>
           <Cart>
+            {cartQuantity >= 1 && <span>{cartQuantity <= 99 ? cartQuantity : "99"}</span>}
             <ShoppingCart size={20} weight="fill" />
           </Cart>
         </HeaderButtonsContainer>
