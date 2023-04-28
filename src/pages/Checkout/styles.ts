@@ -7,5 +7,5 @@ const CheckoutContainer = styled.div`
 
 
 export {
-  CheckoutContainer
+  CheckoutContainer,
 };
