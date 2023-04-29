@@ -21,7 +21,7 @@ const Title = styled.h1<TitleTextProps>`
 `;
 
 const Text = styled.p<RegularTextProps>`
-  color: ${({ theme, color }) => theme.colors[`base-${color ?? "label"}`]};
+  color: ${({ theme, color }) => theme.colors[`base-${color ?? "text"}`]};
   font-size: ${({ theme, size }) => theme.textSizes[`text-regular-${size ?? "m"}`]};
   font-weight: ${({ weight }) => weight ?? 400};
   line-height: 130%;

@@ -4,7 +4,6 @@ import { BaseSectionStyle } from "../../styles";
 const CompleteOrderFormContainer = styled.form`
   display: flex;
   flex: 1;
-  margin-top: 2.5rem;
   flex-direction: column;
 `;
 

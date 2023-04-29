@@ -37,7 +37,7 @@ const RightText = styled.p`
   font-family: "Roboto", sans-serif;
   font-size: 0.75rem;
   font-style: italic;
-  margin-right: 0.75rem;
+  margin: 0 0.75rem;
 `;
 
 export { 

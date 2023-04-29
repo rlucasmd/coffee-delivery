@@ -10,6 +10,7 @@ const BaseSectionStyle = styled.div`
 const CheckoutContainer = styled.div`
   display: flex;
   gap: 2rem;
+  margin: 2.5rem 0;
 `;
 
 
