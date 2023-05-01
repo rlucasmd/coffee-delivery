@@ -22,8 +22,6 @@ const OrderDetailsContainer = styled.div`
   display: flex;
   padding: 2.5rem;
 
-  /* max-width: 32rem; */
-
   flex-direction: column;
   gap: 2rem;
 
@@ -40,16 +38,6 @@ const OrderDetailsContainer = styled.div`
     linear-gradient(102deg, #dbac2c 2.61%, #8047f8 98.76%);
   background-origin: border-box;
   background-clip: padding-box, border-box;
-
-  /* &::before{
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: -1px;
-    
-    border-radius: 6px 36px;
-    background: 
-  } */
 `;
 
 export { 

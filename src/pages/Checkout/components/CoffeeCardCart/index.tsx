@@ -2,6 +2,7 @@ import { Trash } from "phosphor-react";
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { Text } from "../../../../components/Typography";
 import { ActionsContainer, CoffeeCartCardContainer, RemoveButton } from "./styles";
+import { formatMoneyToBRL } from "../../../../utils/formatMoney";
 
 interface CoffeeCartCardProps {
   name: string;
@@ -27,7 +28,7 @@ function CoffeeCartCard({name, photo, price} : CoffeeCartCardProps){
           </ActionsContainer>
         </div>
       </div>
-      <p>{`R$ ${price}`}</p>
+      <p>{`R$ ${formatMoneyToBRL(price)}`}</p>
     </CoffeeCartCardContainer>
   );
 }

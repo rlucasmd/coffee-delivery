@@ -3,6 +3,8 @@ import { Text } from "../../../../components/Typography";
 import { Title } from "../../../../components/Typography";
 import { AddCartWrapper, CardFooter, CoffeeCardContainer, CoffeeDescription, CoffeeTitle, Tags } from "./styles";
 import { QuantityInput } from "../../../../components/QuantityInput";
+import { formatMoneyToBRL } from "../../../../utils/formatMoney";
+import { useState } from "react";
 
 interface CoffeeProps {
   name: string;
@@ -19,6 +21,13 @@ function CoffeeCard({
   price,
   photo
 } : CoffeeProps){
+  const [quantity, setQuantity] = useState(1);
+  function handleIncreaseQuantity(){
+    setQuantity(state => state + 1);
+  }
+  function handleDecreaseQuantity(){
+    setQuantity(state => state > 1 ? state - 1 : state);
+  }
   return (
     <CoffeeCardContainer>
       <img src={`coffees/${photo}`} alt={`café ${name}`}/>
@@ -44,11 +53,15 @@ function CoffeeCard({
             R$
           </Text>
           <Title size="m" color="text" as="strong">
-            {price}
+            {formatMoneyToBRL(price)}
           </Title>
         </div>
         <AddCartWrapper>
-          <QuantityInput />
+          <QuantityInput 
+            quantity={quantity}
+            handleDecreaseQuantity={handleDecreaseQuantity}
+            handleIncreaseQuantity={handleIncreaseQuantity}
+          />
           <button>
             <ShoppingCart size={22} weight="fill"/>
           </button>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const OurCoffeesContainer = styled.section`
   display: flex;
-  margin-top: 2rem;
+  margin: 2rem 0;
   flex-direction: column;
   
   gap: 3.375rem
