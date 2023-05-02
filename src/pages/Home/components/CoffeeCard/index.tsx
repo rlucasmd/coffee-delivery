@@ -5,23 +5,25 @@ import { AddCartWrapper, CardFooter, CoffeeCardContainer, CoffeeDescription, Cof
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { formatMoneyToBRL } from "../../../../utils/formatMoney";
 import { useState } from "react";
+import { Coffee } from "../../../../reducers/coffees/actions";
+import { useCart } from "../../../../hooks/useCart";
 
-interface CoffeeProps {
-  name: string;
-  description: string;
-  tags: string[];
-  price: number;
-  photo: string;
+interface CoffeeCardProps {
+  coffee: Coffee;
 }
 
-function CoffeeCard({
-  name, 
-  description,
-  tags,
-  price,
-  photo
-} : CoffeeProps){
+function CoffeeCard({ coffee }: CoffeeCardProps){
   const [quantity, setQuantity] = useState(1);
+
+  const { addCoffeeToCart } = useCart();
+
+  function handleAddCoffeeToCart(){
+    addCoffeeToCart({
+      ...coffee,
+      quantity
+    });
+  }
+
   function handleIncreaseQuantity(){
     setQuantity(state => state + 1);
   }
@@ -30,10 +32,10 @@ function CoffeeCard({
   }
   return (
     <CoffeeCardContainer>
-      <img src={`coffees/${photo}`} alt={`café ${name}`}/>
+      <img src={`coffees/${coffee.photo}`} alt={`café ${name}`}/>
       <Tags>
         {
-          tags.map(
+          coffee.tags.map(
             (tag) => (
               <span key={tag}>{tag}</span>
             )
@@ -41,9 +43,9 @@ function CoffeeCard({
         }
       </Tags>
       <div>
-        <CoffeeTitle>{name}</CoffeeTitle>
+        <CoffeeTitle>{coffee.name}</CoffeeTitle>
         <CoffeeDescription>
-          {description}
+          {coffee.description}
         </CoffeeDescription>
       </div>
 
@@ -53,7 +55,7 @@ function CoffeeCard({
             R$
           </Text>
           <Title size="m" color="text" as="strong">
-            {formatMoneyToBRL(price)}
+            {formatMoneyToBRL(coffee.price)}
           </Title>
         </div>
         <AddCartWrapper>
@@ -62,7 +64,7 @@ function CoffeeCard({
             handleDecreaseQuantity={handleDecreaseQuantity}
             handleIncreaseQuantity={handleIncreaseQuantity}
           />
-          <button>
+          <button onClick={handleAddCoffeeToCart}>
             <ShoppingCart size={22} weight="fill"/>
           </button>
         </AddCartWrapper>

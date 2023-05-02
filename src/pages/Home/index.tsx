@@ -1,7 +1,6 @@
 import { Introduction } from "./components/Introduction";
 import { OurCoffees } from "./components/OurCoffees";
 import { HomeContainer } from "./styles";
-
 function Home(){
   return (
     <HomeContainer>
