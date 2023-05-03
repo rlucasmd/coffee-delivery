@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const BaseSectionStyle = styled.div`
+const BaseSectionStyle = styled.form`
   width: 100%;
   padding: 2.5rem;
   background: ${({theme}) => theme.colors["base-card"]};
