@@ -49,13 +49,19 @@ const RemoveButton = styled.button`
   gap: 0.5rem;
   border: 1px solid transparent;
   border-radius: 8px;
-  background: ${({theme}) => theme.colors["base-input"]};
+  background: ${({theme}) => theme.colors["base-button"]};
   font-size: 0.75rem;
   font-weight: 400;
   color: ${({theme}) => theme.colors["base-text"]};
 
+  transition: 0.4s;
+
   svg{
     color: ${({theme}) => theme.colors.purple};
+  }
+
+  &:hover{
+    background: ${({theme}) => theme.colors["base-hover"]};
   }
 `;
 
