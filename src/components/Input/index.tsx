@@ -1,20 +1,29 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, forwardRef } from "react";
 import { InputWrapper, InputContainer, InputStyled, RightText } from "./styles";
 
-interface Props extends InputHTMLAttributes<HTMLInputElement>{
+type StyledInputProps = InputHTMLAttributes<HTMLInputElement> & {
   rightText? :string;
-  className?: string;
 }
 
-function Input({ rightText, className, ...rest } : Props){
-  return (
-    <InputWrapper className={className}>
-      <InputContainer>
-        <InputStyled {...rest}/>
-        {rightText && <RightText>{rightText}</RightText>}
-      </InputContainer>
-    </InputWrapper>
-  );
-}
+const Input = forwardRef<HTMLInputElement, StyledInputProps>(
+  ({ className, rightText, ...rest }, ref) => {
+    return (
+      <InputWrapper className={className}>
+        <InputContainer>
+          <InputStyled ref={ref} {...rest}/>
+          {rightText && <RightText>{rightText}</RightText>}
+        </InputContainer>
+      </InputWrapper>
+    );
+  }
+);
+
+Input.displayName = "Styled input";
+
+// function Input({ rightText, ...rest } : Props){
+//   return (
+    
+//   );
+// }
 
 export { Input };

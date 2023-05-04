@@ -1,13 +1,14 @@
 import { CurrencyDollar, MapPinLine } from "phosphor-react";
 import { Title } from "../../../../components/Typography";
 import { SectionHeader } from "../SectionHeader";
-import { CompleteOrderFormContainer, FormSectionContainer, PaymentMethodOptionsContainer } from "./styles";
+import { CompleteOrderFormContainer, FormSectionContainer } from "./styles";
 import { useTheme } from "styled-components";
 import { AddressForm } from "./AddressForm";
 import { PaymentMethodOptions } from "./PaymentMethodOptions";
 
 function CompleteOrderForm(){
   const theme = useTheme();
+  
   return(
     <CompleteOrderFormContainer>
       <Title size="xs">

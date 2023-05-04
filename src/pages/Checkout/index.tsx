@@ -3,7 +3,7 @@ import { SelectedCoffees } from "./components/SelectedCoffees";
 import { CheckoutContainer } from "./styles";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 
 enum PaymentOptions {
   credit = "credit",
@@ -12,7 +12,7 @@ enum PaymentOptions {
 }
 
 const CheckoutOrderValidationSchema = z.object({
-  cep: z.string().min(1, "Informe o CPF"),
+  zipCode: z.string().min(1, "Informe o CPF"),
   street: z.string().min(3, "Informe uma rua"),
   number: z.string().min(1, "Informe um número"),
   complement: z.string(),
@@ -29,12 +29,34 @@ const CheckoutOrderValidationSchema = z.object({
 type CheckoutOrderValidationType = z.infer<typeof CheckoutOrderValidationSchema>;
 
 function Checkout(){
-  const { handleSubmit } = useForm();
+  const confirmOrderForm = useForm<CheckoutOrderValidationType>({
+    resolver: zodResolver(CheckoutOrderValidationSchema),
+    defaultValues:  {
+      paymentMethod: undefined
+    }
+  });
+
+  const { handleSubmit, formState } = confirmOrderForm;
+
+  function onSubmitOrderForm(data: CheckoutOrderValidationType){
+    console.log(data);
+    console.log(formState);
+  }
+  console.log(formState.errors);
   return (
-    <CheckoutContainer className="container">
-      <CompleteOrderForm />
-      <SelectedCoffees />
-    </CheckoutContainer>
+    <FormProvider {...confirmOrderForm}>
+      <CheckoutContainer 
+        className="container"
+        onSubmit={handleSubmit(onSubmitOrderForm)}
+      >
+        <CompleteOrderForm 
+
+        />
+        <SelectedCoffees 
+      
+        />
+      </CheckoutContainer>
+    </FormProvider>
   );
 }
 

@@ -24,7 +24,7 @@ const AddressFormContainer = styled.div`
 
   grid-auto-flow: dense;
 
-  .cep{
+  .zipCode{
     grid-column: span 3;
     max-width: 12.5rem;
   }

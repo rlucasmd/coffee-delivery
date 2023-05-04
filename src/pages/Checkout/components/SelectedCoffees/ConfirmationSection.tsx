@@ -26,7 +26,7 @@ function ConfirmationSection(){
         <Text weight={700} size="l" color="title">Total de itens</Text>
         <Text weight={700} size="l" color="title">{`R$ ${formatMoneyToBRL(totalPrice)}`}</Text>
       </div>
-      <Button title="confirmar pedido"/>
+      <Button title="confirmar pedido" type="submit"/>
     </ConfirmationSectionContainer>
   );
 }
