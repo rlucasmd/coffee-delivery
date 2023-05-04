@@ -1,7 +1,7 @@
-import { HtmlHTMLAttributes, ReactNode, forwardRef } from "react";
+import { HtmlHTMLAttributes, InputHTMLAttributes, ReactNode, forwardRef } from "react";
 import { PaymentMethodContainer, PaymentMethodContent  } from "./styles";
 
-type PaymentMethodInputProps = HtmlHTMLAttributes<HTMLInputElement> & {
+type PaymentMethodInputProps = InputHTMLAttributes<HTMLInputElement> & {
   content: string;
   icon: ReactNode;
 }

@@ -30,6 +30,7 @@ function PaymentMethodOptions(){
             key={content}
             content={content}
             icon={icon}
+            value={key}
             {...register("paymentMethod")}
           />
         ))

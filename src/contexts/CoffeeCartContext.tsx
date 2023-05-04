@@ -7,6 +7,8 @@ import {
   updateCoffeeQuantityFromCartAction
 } from "../reducers/coffees/actions";
 
+const version = "1.0.0";
+
 interface coffeeCartContextProps {
   addCoffeeToCart : (coffee: CartItem) => void;
   cartQuantity: number;
@@ -19,17 +21,29 @@ interface coffeeCartContextProviderProps {
   children: ReactNode;
 }
 
+const coffeesCartLocalStorageKey = `@coffee-delivery/coffees-cart-${version}`;
+
 export const CoffeeCartContext = createContext({} as coffeeCartContextProps);
 
 function CoffeeCartContextProvider({children} : coffeeCartContextProviderProps){
 
   const [cart, dispatch] = useReducer(
     coffeesReducer,
-    [] as CartItem[]
+    [] as CartItem[],
+    (initialState) => {
+      const storageCartItens = localStorage.getItem(coffeesCartLocalStorageKey);
+      if(!storageCartItens)
+        return [] as CartItem[];
+      const cartItens = JSON.parse(storageCartItens);
+      console.log(cartItens);
+      return cartItens;
+    }
   );
 
   useEffect(() => {
-    console.log(cart);
+    // console.log(cart);
+    localStorage.setItem(coffeesCartLocalStorageKey, JSON.stringify(cart));
+
   },[cart]);
 
   function addCoffeeToCart(coffee: CartItem){
